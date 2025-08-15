@@ -1,0 +1,36 @@
+# Source files
+src/
+tsconfig.json
+
+# Development files
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# Testing
+test/
+tests/
+**/*.test.ts
+**/*.test.js
+coverage/
+
+# Build tools
+.github/
+.husky/
+
+# Example and documentation
+example/
+examples/
+docs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Lock files (let users choose their package manager)
+pnpm-lock.yaml
+yarn.lock
+
+# Only include what's necessary for the package
+# The `files` field in package.json is the primary control

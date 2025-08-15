@@ -1,0 +1,17 @@
+{
+  "name": "vite-plugin-svg-sprite-builder-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:sprites": "build-svg-sprite --icons ./icons --out dist/sprite.js"
+  },
+  "dependencies": {
+    "vite-plugin-svg-sprite-builder": "file:.."
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
