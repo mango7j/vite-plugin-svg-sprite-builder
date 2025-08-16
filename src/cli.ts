@@ -2,7 +2,7 @@
 
 import {promises as fs} from "fs"
 import path from "node:path"
-import {generateSprite, createIIFEScript} from "./core"
+import {generateSprite, createIIFEScript} from "./core.js"
 
 interface CliOptions {
   iconsDir: string

@@ -1,7 +1,7 @@
 import {promises as fs} from "fs"
 import path from "node:path"
 import type {Plugin} from "vite"
-import {generateSprite, createInlineScript, createIIFEScript} from "./core"
+import {generateSprite, createInlineScript, createIIFEScript} from "./core.js"
 
 const virtualId = "virtual:svg-sprite"
 
