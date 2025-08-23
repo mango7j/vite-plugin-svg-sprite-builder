@@ -61,8 +61,8 @@ export function svgSpritePlugin(options: SvgSpritePluginOptions): Plugin {
       }
     },
     transformIndexHtml: {
-      enforce: "pre",
-      transform(html) {
+      order: "pre",
+      handler(html) {
         if ((mode === "file" || mode === "hybrid") && autoInject) {
           // Inject sprite loading script into HTML
           const script = `<script>
