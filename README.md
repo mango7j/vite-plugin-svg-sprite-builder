@@ -12,6 +12,16 @@
 - 📝 **TypeScript** - 타입 정의가 포함된 완전한 TypeScript 지원
 - 🎨 **SVGO 통합** - 자동 SVG 최적화
 
+## 최신 업데이트 (v1.1.0)
+
+최신 버전에서는 다음과 같은 개선사항이 추가되었습니다:
+
+- ✨ **새로운 설정 옵션 지원** - 더 유연한 구성 가능
+- 🐛 **deprecated option 사용법 수정** - 최신 API 호환성 개선
+- 🔧 **module resolution 'node' 모드 오류 수정** - Node.js 환경에서의 안정성 향상
+
+더 자세한 변경사항은 [CHANGELOG.md](./CHANGELOG.md)를 참고하세요.
+
 ## 설치
 
 ```bash
