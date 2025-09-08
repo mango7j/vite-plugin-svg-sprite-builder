@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-01-15
+
+### Added
+- New configuration option support
+- Enhanced functionality
+
+### Fixed
+- Fixed deprecated option usage
+- Fixed module resolution issue for 'node' mode (모듈 해석 'node' 경우 오류 수정)
+
 ## [1.0.0] - 2025-01-15
 
 ### Added
@@ -35,4 +45,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - TypeScript source with compiled JavaScript output
 - Comprehensive error handling and logging
 
+[1.1.0]: https://github.com/mango7j/vite-plugin-svg-sprite-builder/releases/tag/v1.1.0
 [1.0.0]: https://github.com/mango7j/vite-plugin-svg-sprite-builder/releases/tag/v1.0.0
