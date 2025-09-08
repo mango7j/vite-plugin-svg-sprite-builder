@@ -12,6 +12,7 @@ export interface SvgSpritePluginOptions {
   mode?: SpriteMode
   outputFile?: string
   autoInject?: boolean
+  insertPosition?: "first" | "last"
   svgoConfig?: any
 }
 
@@ -21,6 +22,7 @@ export function svgSpritePlugin(options: SvgSpritePluginOptions): Plugin {
     mode = "inline",
     outputFile = "dist/sprite.svg",
     autoInject = true,
+    insertPosition = "first",
     svgoConfig
   } = options
 
@@ -36,13 +38,13 @@ export function svgSpritePlugin(options: SvgSpritePluginOptions): Plugin {
         const {sprite} = await generateSprite({iconDir, svgoConfig})
         
         if (mode === "inline") {
-          return createInlineScript(sprite)
+          return createInlineScript(sprite, insertPosition)
         } else if (mode === "file") {
           return `// Sprite will be generated as a static file at build time`
         } else if (mode === "hybrid") {
           // In development, use inline mode for HMR
           // In production, defer to buildStart hook for file generation
-          return createInlineScript(sprite)
+          return createInlineScript(sprite, insertPosition)
         }
       }
     },
@@ -64,6 +66,10 @@ export function svgSpritePlugin(options: SvgSpritePluginOptions): Plugin {
       order: "pre",
       handler(html) {
         if ((mode === "file" || mode === "hybrid") && autoInject) {
+          const insertCode = insertPosition === "last" 
+            ? "document.body.appendChild(container);"
+            : "document.body.insertBefore(container, document.body.firstChild);";
+            
           // Inject sprite loading script into HTML
           const script = `<script>
             fetch('/${path.basename(outputFile)}')
@@ -72,7 +78,7 @@ export function svgSpritePlugin(options: SvgSpritePluginOptions): Plugin {
                 const container = document.createElement('div');
                 container.id = '__svg_sprite_container__';
                 container.innerHTML = sprite;
-                document.body.insertBefore(container, document.body.firstChild);
+                ${insertCode}
               });
           </script>`
           
